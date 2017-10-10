@@ -12,8 +12,9 @@ drive: function() {
   var nextStationIndex = currentStationIndex + 1
   if (nextStationIndex >= routeStations.length) {
 return "End Of Line!"
+
   }
 this._currentStation= routeStations[nextStationIndex]
-return "Now arriving at: " + this._currentStation.getName()
+return "This train starts at: " + this._route.getStartingStation +" And Terminates at" + this.route.getTerminatingStation +  ". \n now arriving at: " + this._currentStation.getName()
 }
 }
