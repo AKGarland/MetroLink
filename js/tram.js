@@ -4,7 +4,7 @@ function Tram (route,startingStation) {
 }
 Tram.prototype = {
 getCurrentStation: function() {
-  return this.getCurrentStation
+  return this._currentStation
 },
 drive: function() { 
   var routeStations = this._route.getStations()

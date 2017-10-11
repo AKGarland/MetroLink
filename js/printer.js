@@ -33,10 +33,18 @@ var stationNames = $.each(stationNames, function(stationIndex, stationName)
 
 var tram = new Tram(altrinchamToAshtonUnderLyne, altrinchamToAshtonUnderLyne.getStations()[0])
 
+console.log(tram)
 $.each(altrinchamToAshtonUnderLyne.getStations(), function (stationIndex, station) {
-  var stationHTML = '<div class = "station">'
-  stationHTML += '<div class = "circle"></div>'
-  stationHTML += '<div class = "name">' + station.getName() + '</div>'
+  var css = ''
+  console.log(tram.getCurrentStation())
+
+  if (tram.getCurrentStation() === station) {
+    css = '-current'
+  }
+
+  var stationHTML = '<div class="station">'
+  stationHTML += '<div class="circle ' + css + '"></div>'
+  stationHTML += '<div class="name">' + station.getName() + '</div>'
   stationHTML += '</div>'
 
   $('#stations').append(stationHTML)
