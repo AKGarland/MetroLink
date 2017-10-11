@@ -18,7 +18,7 @@ body {
 }
 
 .circle.-current {
-  background-color: yellow;
+  background-color: rgb(135, 63, 230);
 }
 
 .name {
