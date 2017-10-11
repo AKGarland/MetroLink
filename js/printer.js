@@ -33,19 +33,35 @@ var stationNames = $.each(stationNames, function(stationIndex, stationName)
 
 var tram = new Tram(altrinchamToAshtonUnderLyne, altrinchamToAshtonUnderLyne.getStations()[0])
 
-console.log(tram)
-$.each(altrinchamToAshtonUnderLyne.getStations(), function (stationIndex, station) {
-  var css = ''
-  console.log(tram.getCurrentStation())
+function updateDOM() {
+  $('#stations').html('')
 
-  if (tram.getCurrentStation() === station) {
-    css = '-current'
-  }
+  $.each(altrinchamToAshtonUnderLyne.getStations(), function (stationIndex, station) {
+    var css = ''
 
-  var stationHTML = '<div class="station">'
-  stationHTML += '<div class="circle ' + css + '"></div>'
-  stationHTML += '<div class="name">' + station.getName() + '</div>'
-  stationHTML += '</div>'
+    if (tram.getCurrentStation() === station) {
+      css = '-current'
+    }
 
-  $('#stations').append(stationHTML)
+    var stationHTML = '<div class="station">'
+    stationHTML += '<div class="circle ' + css + '"></div>'
+    stationHTML += '<div class="name">' + station.getName() + '</div>'
+    stationHTML += '</div>'
+
+    $('#stations').append(stationHTML)
+  })
+}
+
+updateDOM()
+
+$('#nextStationBtn').click(function () {
+  tram.drive()
+  console.log('this button has been pushhhhhed')
+  updateDOM()
+})
+
+$('#reset').click(function () {
+  tram.reset()
+
+  updateDOM()
 })

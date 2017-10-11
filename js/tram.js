@@ -11,10 +11,16 @@ drive: function() {
   var currentStationIndex = routeStations.indexOf(this._currentStation)
   var nextStationIndex = currentStationIndex + 1
   if (nextStationIndex >= routeStations.length) {
-return "End Of Line!"
+return 'End Of Line!'
 
   }
-this._currentStation= routeStations[nextStationIndex]
-return "This train starts at: " + this._route.getStartingStation +" And Terminates at" + this.route.getTerminatingStation +  ". \n now arriving at: " + this._currentStation.getName()
+this._currentStation = routeStations[nextStationIndex]
+
+return 'This train starts at: ' + this._route.getStartingStation() 
+
+//return 'This train starts at: ' + this._route.getStartingStation() + ' And Terminates at' + this.route.getTerminatingStation() +  '. Now arriving at: ' + this._currentStation.getName()
+},
+reset: function () {
+  this._currentStation = this._route.getStations()[0]
 }
 }
