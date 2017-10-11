@@ -30,3 +30,14 @@ var altrinchamToAshtonUnderLyne = new Route()
 
 var stationNames = $.each(stationNames, function(stationIndex, stationName) 
 { altrinchamToAshtonUnderLyne.addStation(new Station(stationName)) })
+
+var tram = new Tram(altrinchamToAshtonUnderLyne, altrinchamToAshtonUnderLyne.getStations()[0])
+
+$.each(altrinchamToAshtonUnderLyne.getStations(), function (stationIndex, station) {
+  var stationHTML = '<div class = "station">'
+  stationHTML += '<div class = "circle"></div>'
+  stationHTML += '<div class = "name">' + station.getName() + '</div>'
+  stationHTML += '</div>'
+
+  $('#stations').append(stationHTML)
+})
